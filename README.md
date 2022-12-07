@@ -8,13 +8,21 @@
 
 ---
 
-# Short Description
+## Description:
+
+The Dive Buddy app provides a place for divers to log their dives, see their stats and loadouts, and post future dive plans or past dive experiences.
 
 #### \*built with Mongo, Express, React, and Node.
 
 ---
 
 ## How to get started
+
+When you open this application you will land on the homepage. From there you can navigate to your dive logs, loadouts, or post feed. In dive logs you will be able to create a new log, update a log, or get rid of a log that you don't want. If you are in the loadouts section you will be able to build a loadout and use it as a checklist for a dive trip. Lastly when you go to the posts page you will be able to create, update, or delete a post.
+
+- `Fork` and `Clone`
+- `cd` into the new directory
+- `npm install` to install dependencies
 
 ---
 
