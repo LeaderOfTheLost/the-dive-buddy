@@ -8,13 +8,23 @@ const Log = (props) => {
   let navigate = useNavigate()
   let {id} = useParams()
 
-  const navToLogs = () => {
 
-  }
+  useEffect(() => {
+    const getLog = async () => {
+      let id = props.id
+      let response = await axios.get(`/logs/${id}`)
+      setLog(response.data)
+    } 
+    getLog()
+  }, [])
+
+
 
   const handleDeleteLog = async (event) => {
     event.preventDefault()
-    console.log(log)
+    let id = props.id
+    let response = await axios.delete(`/logs/${id}`)
+    setLog(response)
   }
 
   return (

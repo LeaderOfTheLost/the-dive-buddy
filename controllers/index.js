@@ -27,7 +27,7 @@ const getUserById = async (req, res) => {
     const id = req.params.id
     const user = await User.findById(id).populate('logs')
     if (user) {
-      return res.status(200).json(user)
+      return res.status(200).json({ user })
     }
     return res.status(404).send('User with the specified ID does not exists')
   } catch (error) {

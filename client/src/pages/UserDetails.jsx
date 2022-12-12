@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Log from '../components/Log'
+import Loadout from '../components/Loadout'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
@@ -8,8 +9,8 @@ const UserDetails = () => {
 
   const [user, setUser] = useState({})
   const [logs, setLogs] = useState([])
-  const [singleLog, setSingleLog] = useState({})
-  const [formState, setFormState] = useState({firstName: '', lastName: '', username: '', email: '', password: '', location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: ''})
+  const [loadouts, setLoadouts] = useState([])
+  const [formState, setFormState] = useState({firstName: '', lastName: '', username: '', email: '', password: '', location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
 
   let navigate = useNavigate()
   let {id} = useParams()
@@ -21,9 +22,9 @@ const UserDetails = () => {
   useEffect(() => {
     const getUser = async () => {
       let response = await axios.get(`/api/users/${id}`)
-
-      setUser(response.data) 
-      setLogs(response.data.logs)
+      setUser(response.data.user) 
+      setLogs(response.data.user.logs)
+      setLoadouts(response.data.user.loadouts)
     } 
     getUser()
   }, [id])
@@ -44,7 +45,7 @@ const UserDetails = () => {
     })
 
     setLogs([...logs, response.data.newLog])
-    setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: ''})
+    setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
   }
 
   const handleUpdate = async () => {
@@ -71,8 +72,8 @@ const UserDetails = () => {
   }
 
   const viewLog = () => {
-    
-    navigate(`/logs/${id}`)
+
+
   }
 
   return (
@@ -90,6 +91,14 @@ const UserDetails = () => {
           timeOfDive={log.timeOfDive}
           maxDepth={log.maxDepth}
           onClick={viewLog}
+        />
+      ))}
+      </div>
+      <div>
+        {loadouts?.map((log) => (
+        <Loadout
+          key={loadout._id}
+          id={loadout._id}
         />
       ))}
       </div>
