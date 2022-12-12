@@ -8,7 +8,7 @@ const userSchema = new Schema(
     email: { type: String, require: true },
     password: { type: String, require: true },
     username: { type: String, require: true },
-    loudouts: [{ type: Schema.Types.ObjectId, ref: 'Loadout' }],
+    loadouts: [{ type: Schema.Types.ObjectId, ref: 'Loadout' }],
     logs: [{ type: Schema.Types.ObjectId, ref: 'Log' }]
   },
   { timestamps: true }

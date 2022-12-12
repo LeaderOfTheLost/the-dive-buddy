@@ -86,6 +86,7 @@ const getAllLogs = async (req, res) => {
 const getLogById = async (req, res) => {
   try {
     const { id } = req.params
+    console.log(id)
     const log = await Log.findById(id)
 
     if (log) {
@@ -122,6 +123,21 @@ const deleteLog = async (req, res) => {
 }
 
 //Loadout Controllers
+const createLoadout = async (req, res) => {
+  try {
+    const newLoadout = await new Loadout(req.body)
+    await newLoadout.save()
+    let updatedUser = await User.findById(req.params.id)
+    updatedUser.loadouts.push(newLoadout)
+    await updatedUser.save()
+    return res.status(201).json({
+      newLoadout
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 const getAllLoadouts = async (req, res) => {
   try {
     const allLoadouts = await Loadout.find({})
@@ -131,29 +147,21 @@ const getAllLoadouts = async (req, res) => {
   }
 }
 
-const createLoadout = async (req, res) => {
-  try {
-    const newLoadout = await new Loadout(req.body)
-    await newLoadout.save()
-    return res.status(201).json({
-      newLoadout
-    })
-  } catch (error) {
-    return res.status(500).json({ error: error.message })
-  }
-}
 const getLoadoutById = async (req, res) => {
   try {
-    const id = req.params.id
+    const { id } = req.params
+    console.log(id)
     const loadout = await Loadout.findById(id)
+
     if (loadout) {
       return res.status(200).json({ loadout })
     }
-    return res.status(404).send('Loadout with the specified ID does not exists')
+    return res.status(404).send('Loadout with specific ID does not exists')
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
+
 const updateLoadout = async (req, res) => {
   try {
     const updatedLoadout = await Loadout.findByIdAndUpdate(
@@ -172,7 +180,7 @@ const updateLoadout = async (req, res) => {
 const deleteLoadout = async (req, res) => {
   try {
     const { id } = req.params
-    const deletedLoadout = await Loadout.findByIdAndDelete(id)
+    const deletedLoadout = await Loadout.findByIdAndDelete(req.params.id)
     if (deletedLoadout) {
       return res.status(200).send('Loadout deleted')
     }

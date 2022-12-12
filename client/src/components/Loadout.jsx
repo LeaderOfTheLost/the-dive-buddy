@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 
-const Loadout = () => {
+const Loadout = (props) => {
   const [loadout, setLoadout] = useState({})
 
   let navigate = useNavigate()
@@ -24,16 +24,18 @@ const Loadout = () => {
     event.preventDefault()
     let id = props.id
     let response = await axios.delete(`/loadouts/${id}`)
-    setLog(response)
+    setLoadout(response)
   }
 
   return (
     <div className="card" onClick={() => props.onClick(props.id)}>
-
+    <div className="img-wrapper">
+    </div>
     <div className="info-wrapper">
       
-        <h3>log</h3>
-        <h3>{props.name}</h3>
+        <h3>loadout</h3>
+        <h3>{props.location}</h3>
+        <h3>{props.dateOfDive}</h3>
     </div>
     <button className="deleteButton" onClick={handleDeleteLoadout}>Delete Loadout</button>
 </div>

@@ -24,6 +24,7 @@ const UserDetails = () => {
       let response = await axios.get(`/api/users/${id}`)
       setUser(response.data.user) 
       setLogs(response.data.user.logs)
+      console.log(response)
       setLoadouts(response.data.user.loadouts)
     } 
     getUser()
@@ -33,7 +34,7 @@ const UserDetails = () => {
     setFormState({...formState, [event.target.id]: event.target.value})
   }
 
-    const handleSubmit = async (event) => {
+    const handleSubmitLog = async (event) => {
     event.preventDefault()
 
     let response = await axios.post(`/logs/${id}`, formState)
@@ -47,6 +48,22 @@ const UserDetails = () => {
     setLogs([...logs, response.data.newLog])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
   }
+
+    const handleSubmitLoadout = async (event) => {
+    event.preventDefault()
+
+    let response = await axios.post(`/loadouts/${id}`, formState)
+    .then ((response) => {
+      return response
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+    setLoadouts([...loadouts, response.data.newLoadout])
+    setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
+  }
+
+
 
   const handleUpdate = async () => {
   
@@ -95,16 +112,23 @@ const UserDetails = () => {
       ))}
       </div>
       <div>
-        {loadouts?.map((log) => (
+        {loadouts?.map((loadout) => (
         <Loadout
           key={loadout._id}
           id={loadout._id}
         />
       ))}
       </div>
+      <div className='form'>
+      <form onSubmit={handleSubmitLoadout}>
+        <label htmlFor='name'>Loadout Name:</label>
+        <input id='name' value={formState.name} onChange={handleChange} />
+        <button type='submit'>Add Loadout</button>
+      </form>
+      </div>
       </div>
     <div className='form'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitLog}>
         <label htmlFor='location'>Location:</label>
         <input id='location' value={formState.location} onChange={handleChange} />
         <label htmlFor='dateOfDive'>Date:</label>
