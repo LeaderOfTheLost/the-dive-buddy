@@ -25,9 +25,9 @@ const createUser = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const id = req.params.id
-    const user = await User.findById(id)
+    const user = await User.findById(id).populate('logs')
     if (user) {
-      return res.status(200).json({ user })
+      return res.status(200).json(user)
     }
     return res.status(404).send('User with the specified ID does not exists')
   } catch (error) {
@@ -76,7 +76,7 @@ const createLog = async (req, res) => {
 
 const getAllLogs = async (req, res) => {
   try {
-    const allLogs = await Log.find()
+    const allLogs = await Log.find({})
     return res.status(200).json({ allLogs })
   } catch (error) {
     return res.status(500).send(error.message)
@@ -87,8 +87,9 @@ const getLogById = async (req, res) => {
   try {
     const { id } = req.params
     const log = await Log.findById(id)
+
     if (log) {
-      return res.status(200).json({ log })
+      return res.status(200).json(log)
     }
     return res.status(404).send('Log with specific ID does not exists')
   } catch (error) {

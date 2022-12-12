@@ -1,40 +1,33 @@
-import React from 'react'
-import axios from 'axios'
-import {useState, useEffect} from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-
-
+import axios from "axios"
+import { useState, useEffect } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 
 const Log = (props) => {
-  const [user, setUser] = useState({})
-  const [logs, setLogs] = useState([])
+  const [log, setLog] = useState({})
 
   let navigate = useNavigate()
   let {id} = useParams()
 
-  useEffect(() => {
-    const getUser = async () => {
-      let response = await axios.get(`/api/wonders/${id}`)
+  const navToLogs = () => {
 
-      setUser(response.data) 
-      setLogs(response.data.reviews)
-    } 
-    getUser()
-  }, [id])
+  }
 
-  const handleDelete = async (event) => {
+  const handleDeleteLog = async (event) => {
     event.preventDefault()
-    let response = await axios.delete(`/logs/${id}`)
-    return response
-    navigate('/logs')
-  } 
+    console.log(log)
+  }
 
   return (
-    <div className="card" key={props._id}>
-    <div className="info-wrapper">
-      <h2>{props.location}</h2>
-      <button onClick={handleDelete}>Delete Log</button>
+    <div className="card" onClick={() => props.onClick(props.id)}>
+    <div className="img-wrapper">
     </div>
+    <div className="info-wrapper">
+      
+        <h3>log</h3>
+        <h3>{props.location}</h3>
+        <h3>{props.dateOfDive}</h3>
+    </div>
+    <button className="deleteButton" onClick={handleDeleteLog}>Delete Log</button>
 </div>
   )
 }

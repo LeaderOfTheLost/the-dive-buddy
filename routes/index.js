@@ -7,7 +7,7 @@ router.get('/', (req, res) => res.send('Root'))
 //User Routes
 router.get('/users', controllers.getAllUsers)
 router.post('/users', controllers.createUser)
-router.get('/users/:id', controllers.getUserById)
+router.get('/api/users/:id', controllers.getUserById)
 router.put('/users/:id', controllers.updateUser)
 router.delete('/users/:id', controllers.deleteUser)
 

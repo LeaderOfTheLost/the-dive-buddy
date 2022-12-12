@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Log from '../components/Log'
-import UserCard from '../components/UserCard'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
@@ -9,6 +8,7 @@ const UserDetails = () => {
 
   const [user, setUser] = useState({})
   const [logs, setLogs] = useState([])
+  const [singleLog, setSingleLog] = useState({})
   const [formState, setFormState] = useState({firstName: '', lastName: '', username: '', email: '', password: '', location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: ''})
 
   let navigate = useNavigate()
@@ -20,14 +20,13 @@ const UserDetails = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      let response = await axios.get(`/users/${id}`)
+      let response = await axios.get(`/api/users/${id}`)
 
-      setUser(response.data.user) 
-      setLogs(response.data.user.logs)
+      setUser(response.data) 
+      setLogs(response.data.logs)
     } 
     getUser()
-  }, [])
-
+  }, [id])
 
     const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
@@ -35,14 +34,15 @@ const UserDetails = () => {
 
     const handleSubmit = async (event) => {
     event.preventDefault()
-    let response = await axios.post(`/logs/${id}`, formState)
 
+    let response = await axios.post(`/logs/${id}`, formState)
     .then ((response) => {
       return response
     })
     .catch((error) => {
       console.log(error)
     })
+
     setLogs([...logs, response.data.newLog])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: ''})
   }
@@ -56,35 +56,43 @@ const UserDetails = () => {
     .catch((error) => {
       console.log(error)
     })
+
     setUser([user, response.data])
     setFormState({firstName: '', lastName: '', username: '', email: '', password: ''})
   }
 
 
 
-  const handleDelete = async (event) => {
+  const handleDeleteUser = async (event) => {
     event.preventDefault()
     let response = await axios.delete(`/users/${id}`, formState)
     setUser(response)
     navToUsers()
   }
 
+  const viewLog = () => {
+    
+    navigate(`/logs/${id}`)
+  }
 
   return (
     <div className="log-container">
       <h2>Buttons and buttons</h2>
             <div className='logs'>
         <h3 className='logHeader'>LOGS</h3>
+        <div>
         {logs?.map((log) => (
         <Log
           key={log._id}
-          id={log.id}
+          id={log._id}
           location={log.location}
           dateOfDive={log.dateOfDive}
           timeOfDive={log.timeOfDive}
           maxDepth={log.maxDepth}
+          onClick={viewLog}
         />
       ))}
+      </div>
       </div>
     <div className='form'>
       <form onSubmit={handleSubmit}>
@@ -138,7 +146,7 @@ const UserDetails = () => {
       </form>
       </div>
       <div>
-      <button className="deleteButton" onClick={handleDelete}>Delete User</button>
+      <button className="deleteButton" onClick={handleDeleteUser}>Delete User</button>
       </div>
     </div>
   )
