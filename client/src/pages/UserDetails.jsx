@@ -6,9 +6,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 
 const UserDetails = () => {
+
   const [user, setUser] = useState({})
   const [logs, setLogs] = useState([])
-  const [formState, setFormState] = useState({firstName: '', lastName: '', username: '', email: '', password: ''})
+  const [formState, setFormState] = useState({firstName: '', lastName: '', username: '', email: '', password: '', location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: ''})
 
   let navigate = useNavigate()
   let {id} = useParams()
@@ -16,17 +17,26 @@ const UserDetails = () => {
   const navToUsers = () => {
     navigate('/')
   }
-  const viewLogs = () => {
-    navigate('/logs')
-  }
 
-  const handleChange = (event) => {
+  useEffect(() => {
+    const getUser = async () => {
+      let response = await axios.get(`/users/${id}`)
+
+      setUser(response.data.user) 
+      setLogs(response.data.user.logs)
+    } 
+    getUser()
+  }, [])
+
+
+    const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
   }
 
-  const handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
     event.preventDefault()
-    let response = await axios.put(`/logs/${id}`, formState)
+    let response = await axios.post(`/logs/${id}`, formState)
+
     .then ((response) => {
       return response
     })
@@ -36,6 +46,7 @@ const UserDetails = () => {
     setLogs([...logs, response.data.newLog])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: ''})
   }
+
   const handleUpdate = async () => {
   
     let response = await axios.put(`/users/${id}`, formState)
@@ -49,16 +60,7 @@ const UserDetails = () => {
     setFormState({firstName: '', lastName: '', username: '', email: '', password: ''})
   }
 
-  
-  useEffect(() => {
-    const getUser = async () => {
-      let response = await axios.get(`/users/${id}`)
 
-      setUser(response.data) 
-      setLogs(response.data.logs)
-    } 
-    getUser()
-  }, [])
 
   const handleDelete = async (event) => {
     event.preventDefault()
@@ -67,12 +69,58 @@ const UserDetails = () => {
     navToUsers()
   }
 
+
   return (
     <div className="log-container">
       <h2>Buttons and buttons</h2>
-      <button onClick={viewLogs}>Logs</button>
-        <button>Loadouts</button>
-        <button>Stats</button>
+            <div className='logs'>
+        <h3 className='logHeader'>LOGS</h3>
+        {logs?.map((log) => (
+        <Log
+          key={log._id}
+          id={log.id}
+          location={log.location}
+          dateOfDive={log.dateOfDive}
+          timeOfDive={log.timeOfDive}
+          maxDepth={log.maxDepth}
+        />
+      ))}
+      </div>
+    <div className='form'>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='location'>Location:</label>
+        <input id='location' value={formState.location} onChange={handleChange} />
+        <label htmlFor='dateOfDive'>Date:</label>
+        <input id='dateOfDive' value={formState.dateOfDive} onChange={handleChange}/>
+        <label htmlFor='timeOfDive'>Time:</label>
+        <input id='timeOfDive' value={formState.timeOfDive} onChange={handleChange}/>
+        <label htmlFor='diveNumOfDay'>Dive Number:</label>
+        <input id='diveNumOfDay' value={formState.diveNumOfDay} onChange={handleChange}/>
+        <label htmlFor='maxDepth'>Max Depth:</label>
+        <input id='maxDepth' value={formState.maxDepth} onChange={handleChange}/>
+        <label htmlFor='diveTime'>Dive Time:</label>
+        <input id='diveTime' value={formState.diveTime} onChange={handleChange}/>
+        <label htmlFor='surfaceTemp'>Surface Temp:</label>
+        <input id='surfaceTemp' value={formState.surfaceTemp} onChange={handleChange}/>
+        <label htmlFor='bottomTemp'>Bottom Temp:</label>
+        <input id='bottomTemp' value={formState.bottomTemp} onChange={handleChange}/>
+        <label htmlFor='visibility'>Visibility:</label>
+        <input id='visibility' value={formState.visibility} onChange={handleChange}/>
+        <label htmlFor='diveBuddy'>Buddy Name:</label>
+        <input id='diveBuddy' value={formState.diveBuddy} onChange={handleChange}/>
+        <label htmlFor='notes'>Notes:</label>
+        <input id='notes' value={formState.notes} onChange={handleChange}/>
+        <label htmlFor='startPressure'>Start Pressure:</label>
+        <input id='startPressure' value={formState.startPressure} onChange={handleChange}/>
+        <label htmlFor='endPressure'>End Pressure:</label>
+        <input id='endPressure' value={formState.endPressure} onChange={handleChange}/>
+        <label htmlFor='gasMix'>Gas Mix:</label>
+        <input id='gasMix' value={formState.gasMix} onChange={handleChange}/>
+        <label htmlFor='surfaceInterval'>Surface Interval:</label>
+        <input id='surfaceInterval' value={formState.surfaceInterval} onChange={handleChange}/>
+        <button type='submit'>Add Log</button>
+      </form>
+      </div>
 
        <div className='form'>
       <form onSubmit={handleUpdate}>

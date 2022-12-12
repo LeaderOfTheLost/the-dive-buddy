@@ -30,7 +30,7 @@ const Log = (props) => {
   } 
 
   return (
-    <div className="card">
+    <div className="card" key={props._id}>
     <div className="info-wrapper">
       <h2>{props.location}</h2>
       <button onClick={handleDelete}>Delete Log</button>
