@@ -23,7 +23,7 @@ const LogsPage = () => {
   }
 
   const handleSubmit = async (event) => {
-    // event.preventDefault()
+    event.preventDefault()
     let response = await axios
       .post(`/logs/${id}`, formState)
       .then((response) => {
@@ -32,34 +32,27 @@ const LogsPage = () => {
       .catch((error) => {
         console.log(error)
       })
-    setLogs([logs, response.data])
+    setLogs([...logs, response.data])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: ''})
     navToLogs()
   }
   useEffect(() => {
-    const getLogs = async () => {
-      console.log()
-      let response = await axios.get('/logs')
-      console.log(response)
+    const getUser = async () => {
+      let response = await axios.get(`/users/${id}`)
 
-      setLogs(response.data.allLogs)
+      setUser(response.data) 
+      setLogs(response.data.logs)
     } 
-    getLogs()
+    getUser()
   }, [])
 
 
-  const handleDelete = async (event) => {
-    event.preventDefault()
-    let response = await axios.delete(`/logs/${id}`, formState)
-    setUser(response)
-    navToLogs()
-  } 
+
 
   return (
     <div className="card">
     <div className="info-wrapper">
       <h1>All Divers Logs</h1>
-      <h3></h3>
       {logs?.map((log) => (
         <Log
           key={log._id}

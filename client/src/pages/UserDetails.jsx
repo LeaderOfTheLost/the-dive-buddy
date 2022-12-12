@@ -1,24 +1,41 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Log from '../components/Log'
+import UserCard from '../components/UserCard'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
 const UserDetails = () => {
   const [user, setUser] = useState({})
+  const [logs, setLogs] = useState([])
   const [formState, setFormState] = useState({firstName: '', lastName: '', username: '', email: '', password: ''})
 
   let navigate = useNavigate()
   let {id} = useParams()
 
+  const navToUsers = () => {
+    navigate('/')
+  }
   const viewLogs = () => {
-    navigate(`/logs`)
+    navigate('/logs')
   }
 
   const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    let response = await axios.put(`/logs/${id}`, formState)
+    .then ((response) => {
+      return response
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+    setLogs([...logs, response.data.newLog])
+    setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: ''})
+  }
   const handleUpdate = async () => {
   
     let response = await axios.put(`/users/${id}`, formState)
@@ -29,14 +46,19 @@ const UserDetails = () => {
       console.log(error)
     })
     setUser([user, response.data])
-    setFormState({ firstName: '', lastName: '', username: '', email: '', password: ''})
-    navToUsers()
+    setFormState({firstName: '', lastName: '', username: '', email: '', password: ''})
   }
 
   
-  const navToUsers = () => {
-    navigate('/users')
-  }
+  useEffect(() => {
+    const getUser = async () => {
+      let response = await axios.get(`/users/${id}`)
+
+      setUser(response.data) 
+      setLogs(response.data.logs)
+    } 
+    getUser()
+  }, [])
 
   const handleDelete = async (event) => {
     event.preventDefault()
