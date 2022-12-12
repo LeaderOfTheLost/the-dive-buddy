@@ -1,0 +1,215 @@
+[
+  {
+    "firstName": "David",
+    "lastName": "Caldwell",
+    "email": "doubledc92@gmail.com",
+    "password": "abc123",
+    "username": "LeaderOfTheLost",
+    "loudouts": [
+      {
+        "name": "cave"
+      },
+      {
+        "name": "openwater"
+      },
+      {
+        "name": "cavern"
+      }
+    ],
+    "logs": [
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      },
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      },
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      }
+    ]
+  },
+  {
+    "firstName": "Ashley",
+    "lastName": "King",
+    "email": "a@me.com",
+    "password": "abc321",
+    "username": "Adawg",
+    "loudouts": [
+      {
+        "name": "cave"
+      },
+      {
+        "name": "openwater"
+      },
+      {
+        "name": "cavern"
+      }
+    ],
+    "logs": [
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      },
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      },
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      }
+    ]
+  },
+  {
+    "firstName": "Cameron",
+    "lastName": "King",
+    "email": "c@me.com",
+    "password": "abc231",
+    "username": "Cdawg",
+    "loudouts": [
+      {
+        "name": "cave"
+      },
+      {
+        "name": "openwater"
+      },
+      {
+        "name": "cavern"
+      }
+    ],
+    "logs": [
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      },
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      },
+      {
+        "location": "Devils Den",
+        "dateOfDive": "2/2/22",
+        "timeOfDive": "2:00",
+        "diveNumOfDay": "2",
+        "maxDepth": "20",
+        "diveTime": "20",
+        "surfaceTemp": "80",
+        "bottomTemp": "72",
+        "visibility": "100",
+        "diveBuddy": "me",
+        "notes": "none",
+        "startPressure": "3000",
+        "endPressure": "1200",
+        "gasMix": "32",
+        "surfaceInterval": "30"
+      }
+    ]
+  }
+]
