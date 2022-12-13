@@ -16,7 +16,7 @@ const Loadout = (props) => {
       setLoadout(response.data)
     } 
     getLoadout()
-  }, [])
+  }, [id])
 
 
 
@@ -28,14 +28,14 @@ const Loadout = (props) => {
   }
 
   return (
-    <div className="card" onClick={() => props.onClick(props.id)}>
+    <div className="card">
     <div className="img-wrapper">
     </div>
     <div className="info-wrapper">
       
         <h3>loadout</h3>
-        <h3>{props.location}</h3>
-        <h3>{props.dateOfDive}</h3>
+        <h3>{props.name}</h3>
+
     </div>
     <button className="deleteButton" onClick={handleDeleteLoadout}>Delete Loadout</button>
 </div>
