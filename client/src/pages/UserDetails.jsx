@@ -18,9 +18,9 @@ const UserDetails = () => {
   useEffect(() => {
     const getUser = async () => {
       let response = await axios.get(`/api/users/${id}`)
+
       setUser(response.data.user) 
       setLogs(response.data.user.logs)
-      console.log(response.data)
       setLoadouts(response.data.user.loadouts)
     } 
     getUser()
@@ -29,6 +29,9 @@ const UserDetails = () => {
   const navToUsers = () => {
     navigate('/')
   }
+  // const navToLoadout = () => {
+  //   navigate(`/loadouts/${id}`)
+  // }
 
     const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
@@ -63,7 +66,7 @@ const UserDetails = () => {
     
     setLoadouts([...loadouts, response.data.newLoadout])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
-
+    // navToLoadout()
   }
 
   const handleUpdate = async () => {
@@ -87,12 +90,6 @@ const UserDetails = () => {
     navToUsers()
   }
 
-
-  const viewLog = () => {
-
-
-  }
-
   return (
     <div className="log-container">
       <h2>Buttons and buttons</h2>
@@ -107,7 +104,6 @@ const UserDetails = () => {
           dateOfDive={log.dateOfDive}
           timeOfDive={log.timeOfDive}
           maxDepth={log.maxDepth}
-          onClick={viewLog}
         />
       ))}
       </div>

@@ -28,7 +28,7 @@ const Log = (props) => {
   }
 
   return (
-    <div className="card" onClick={() => props.onClick(props.id)}>
+    <div>
     <div className="img-wrapper">
     </div>
     <div className="info-wrapper">
