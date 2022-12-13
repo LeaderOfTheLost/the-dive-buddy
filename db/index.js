@@ -3,6 +3,11 @@ require('dotenv').config()
 
 mongoose.set('strictQuery', true)
 
+let dbUrl =
+  process.env.NODE_ENV === 'production'
+    ? process.env.MONGODB_URI
+    : 'mongodb://127.0.0.1:27017/TheDiveBuddy'
+
 mongoose
   .connect(dbUrl)
   .then(() => {
