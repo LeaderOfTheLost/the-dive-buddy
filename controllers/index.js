@@ -25,7 +25,7 @@ const createUser = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const id = req.params.id
-    const user = await User.findById(id).populate('logs')
+    const user = await User.findById(id).populate('logs', 'loadouts')
     if (user) {
       return res.status(200).json({ user })
     }
@@ -61,7 +61,7 @@ const deleteUser = async (req, res) => {
 //Log Controllers
 const createLog = async (req, res) => {
   try {
-    const newLog = await new Log(req.body)
+    const newLog = new Log(req.body)
     await newLog.save()
     let updatedUser = await User.findById(req.params.id)
     updatedUser.logs.push(newLog._id)
@@ -86,9 +86,7 @@ const getAllLogs = async (req, res) => {
 const getLogById = async (req, res) => {
   try {
     const { id } = req.params
-    console.log(id)
     const log = await Log.findById(id)
-
     if (log) {
       return res.status(200).json(log)
     }
@@ -111,7 +109,7 @@ const updateLog = async (req, res) => {
 
 const deleteLog = async (req, res) => {
   try {
-    const { id } = req.params
+    // const { id } = req.params
     const deletedLog = await Log.findByIdAndDelete(req.params.id)
     if (deletedLog) {
       return res.status(200).send('Log deleted')
@@ -125,10 +123,10 @@ const deleteLog = async (req, res) => {
 //Loadout Controllers
 const createLoadout = async (req, res) => {
   try {
-    const newLoadout = await new Loadout(req.body)
+    const newLoadout = new Loadout(req.body)
     await newLoadout.save()
     let updatedUser = await User.findById(req.params.id)
-    updatedUser.loadouts.push(newLoadout)
+    updatedUser.loadouts.push(newLoadout._id)
     await updatedUser.save()
     return res.status(201).json({
       newLoadout
@@ -150,11 +148,9 @@ const getAllLoadouts = async (req, res) => {
 const getLoadoutById = async (req, res) => {
   try {
     const { id } = req.params
-    console.log(id)
-    const loadout = await Loadout.findById(id)
-
+    const loadout = await Loadout.findById(id).populate('gear')
     if (loadout) {
-      return res.status(200).json({ loadout })
+      return res.status(200).json(loadout)
     }
     return res.status(404).send('Loadout with specific ID does not exists')
   } catch (error) {

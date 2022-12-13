@@ -19,8 +19,8 @@ router.put('/logs/:id', controllers.updateLog)
 router.delete('/logs/:id', controllers.deleteLog)
 
 // Loudout Routes
-router.get('/loadouts', controllers.getAllLoadouts)
 router.post('/loadouts/:id', controllers.createLoadout)
+router.get('/loadouts', controllers.getAllLoadouts)
 router.get('/loadouts/:id', controllers.getLoadoutById)
 router.put('/loadouts/:id', controllers.updateLoadout)
 router.delete('/loadouts/:id', controllers.deleteLoadout)

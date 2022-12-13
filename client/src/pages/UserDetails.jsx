@@ -15,10 +15,6 @@ const UserDetails = () => {
   let navigate = useNavigate()
   let {id} = useParams()
 
-  const navToUsers = () => {
-    navigate('/')
-  }
-
   useEffect(() => {
     const getUser = async () => {
       let response = await axios.get(`/api/users/${id}`)
@@ -28,6 +24,10 @@ const UserDetails = () => {
     } 
     getUser()
   }, [id])
+
+  const navToUsers = () => {
+    navigate('/')
+  }
 
     const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
@@ -58,11 +58,10 @@ const UserDetails = () => {
     .catch((error) => {
       console.log(error)
     })
+
     setLoadouts([...loadouts, response.data.newLoadout])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
   }
-
-
 
   const handleUpdate = async () => {
   
@@ -78,14 +77,13 @@ const UserDetails = () => {
     setFormState({firstName: '', lastName: '', username: '', email: '', password: ''})
   }
 
-
-
   const handleDeleteUser = async (event) => {
     event.preventDefault()
     let response = await axios.delete(`/users/${id}`, formState)
     setUser(response)
     navToUsers()
   }
+
 
   const viewLog = () => {
 
@@ -115,6 +113,7 @@ const UserDetails = () => {
         <Loadout
           key={loadout._id}
           id={loadout._id}
+          name={loadout.name}
         />
       ))}
       </div>
@@ -162,20 +161,20 @@ const UserDetails = () => {
       </form>
       </div>
 
-       <div className='form'>
-      <form onSubmit={handleUpdate}>
-        <label htmlFor='firstName'>First Name:</label>
-        <input id='firstName' value={formState.firstName} onChange={handleChange} />
-        <label htmlFor='lastName'>Last Name:</label>
-        <input id='lastName' value={formState.lastName} onChange={handleChange}/>
-        <label htmlFor='username'>Username:</label>
-        <input id='username' value={formState.username} onChange={handleChange}/>
-        <label htmlFor='email'>Email:</label>
-        <input id='email' value={formState.email} onChange={handleChange}/>
-        <label htmlFor='password'>Password:</label>
-        <input id='password' value={formState.password} onChange={handleChange}/>
-        <button type='submit'>Update</button>
-      </form>
+      <div className='form'>
+        <form onSubmit={handleUpdate}>
+          <label htmlFor='firstName'>First Name:</label>
+          <input id='firstName' value={formState.firstName} onChange={handleChange} />
+          <label htmlFor='lastName'>Last Name:</label>
+          <input id='lastName' value={formState.lastName} onChange={handleChange}/>
+          <label htmlFor='username'>Username:</label>
+          <input id='username' value={formState.username} onChange={handleChange}/>
+          <label htmlFor='email'>Email:</label>
+          <input id='email' value={formState.email} onChange={handleChange}/>
+          <label htmlFor='password'>Password:</label>
+          <input id='password' value={formState.password} onChange={handleChange}/>
+          <button type='submit'>Update</button>
+        </form>
       </div>
       <div>
       <button className="deleteButton" onClick={handleDeleteUser}>Delete User</button>
