@@ -189,7 +189,7 @@ const deleteLoadout = async (req, res) => {
 //Gear Controllers
 const createGear = async (req, res) => {
   try {
-    const newGear = new Loadout(req.body)
+    const newGear = new Gear(req.body)
     await newGear.save()
     let updatedLoadout = await Loadout.findById(req.params.id)
     updatedLoadout.gear.push(newGear._id)

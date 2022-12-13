@@ -3,19 +3,22 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 
 const Gear = (props) => {
-  const [gear, setGear] = useState({})
-
+  
+  const [gear, setGear] = useState([])
+  const [loadout, setLoadout] = useState({})
+  
   let navigate = useNavigate()
   let {id} = useParams()
 
 
   useEffect(() => {
-    const getGear = async () => {
-      let id = props.id
-      let response = await axios.get(`/gear/${id}`)
-      setGear(response.data)
+    const getloadout = async () => {
+      let response = await axios.get(`/loadouts/${id}`)
+
+      setLoadout(response.data)
+      setGear(response.data.gear)
     } 
-    getGear()
+    getloadout()
   }, [id])
 
 

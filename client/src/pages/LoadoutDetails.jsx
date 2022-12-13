@@ -14,6 +14,15 @@ const LoadoutDetails = () => {
   let navigate = useNavigate()
   let {id} = useParams()
 
+  useEffect(() => {
+    const getLoadout = async () => {
+      let response = await axios.get(`/loadouts/${id}`)
+
+      setLoadout(response.data) 
+      setGear(response.data.gear)
+    } 
+    getLoadout()
+  }, [])
 
   const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
@@ -32,15 +41,7 @@ const LoadoutDetails = () => {
     setFormState({name: ''})
 
   }
-  useEffect(() => {
-    const getLoadout = async () => {
-      let response = await axios.get(`/loadouts/${id}`)
 
-      setLoadout(response.data) 
-      setGear(response.data.gear)
-    } 
-    getLoadout()
-  }, [])
 
 
 
