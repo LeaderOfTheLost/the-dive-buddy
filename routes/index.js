@@ -25,4 +25,11 @@ router.get('/loadouts/:id', controllers.getLoadoutById)
 router.put('/loadouts/:id', controllers.updateLoadout)
 router.delete('/loadouts/:id', controllers.deleteLoadout)
 
+//Gear Routes
+router.post('/gear/:id', controllers.createGear)
+router.get('/gear', controllers.getAllGears)
+router.get('/gear/:id', controllers.getGearById)
+router.put('/gear/:id', controllers.updateGear)
+router.delete('/gear/:id', controllers.deleteGear)
+
 module.exports = router

@@ -49,6 +49,7 @@ const UserDetails = () => {
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
   }
 
+
     const handleSubmitLoadout = async (event) => {
     event.preventDefault()
 
@@ -62,6 +63,7 @@ const UserDetails = () => {
     
     setLoadouts([...loadouts, response.data.newLoadout])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
+
   }
 
   const handleUpdate = async () => {

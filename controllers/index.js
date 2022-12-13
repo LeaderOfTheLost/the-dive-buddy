@@ -186,6 +186,68 @@ const deleteLoadout = async (req, res) => {
   }
 }
 
+//Gear Controllers
+const createGear = async (req, res) => {
+  try {
+    const newGear = new Loadout(req.body)
+    await newGear.save()
+    let updatedLoadout = await Loadout.findById(req.params.id)
+    updatedLoadout.gear.push(newGear._id)
+    await updatedLoadout.save()
+    return res.status(201).json({
+      newGear
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getAllGears = async (req, res) => {
+  try {
+    const allGears = await Gear.find({})
+    return res.status(200).json({ allGears })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const getGearById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const gear = await Gear.findById(id).populate('gear')
+    if (gear) {
+      return res.status(200).json(gear)
+    }
+    return res.status(404).send('Gear with specific ID does not exists')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const updateGear = async (req, res) => {
+  try {
+    const updatedGear = await Gear.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+    res.status(200).json(updatedGear)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const deleteGear = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deletedGear = await Gear.findByIdAndDelete(req.params.id)
+    if (deletedGear) {
+      return res.status(200).send('Gear deleted')
+    }
+    throw new Error('Gear not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   getAllUsers,
   createUser,
@@ -201,5 +263,10 @@ module.exports = {
   createLoadout,
   getLoadoutById,
   updateLoadout,
-  deleteLoadout
+  deleteLoadout,
+  createGear,
+  getAllGears,
+  getGearById,
+  updateGear,
+  deleteGear
 }

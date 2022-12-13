@@ -8,6 +8,10 @@ const Loadout = (props) => {
   let navigate = useNavigate()
   let {id} = useParams()
 
+  const navToLoadout = () => {
+    let id = props.id
+    navigate(`/loadouts/${id}`)
+  }
 
   useEffect(() => {
     const getLoadout = async () => {
@@ -16,7 +20,7 @@ const Loadout = (props) => {
       setLoadout(response.data)
     } 
     getLoadout()
-  }, [id])
+  }, [id, props.id])
 
 
 
@@ -29,13 +33,13 @@ const Loadout = (props) => {
 
   return (
     <div className="card">
-    <div className="img-wrapper">
-    </div>
+    <div className="card" onClick={navToLoadout}>
     <div className="info-wrapper">
       
         <h3>loadout</h3>
-        <h3>{props.name}</h3>
+        <h3>{loadout.name}</h3>
 
+    </div>
     </div>
     <button className="deleteButton" onClick={handleDeleteLoadout}>Delete Loadout</button>
 </div>
