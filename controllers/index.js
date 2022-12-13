@@ -1,5 +1,5 @@
 // const { model } = require('mongoose')
-const { User, Log, Loadout, Gear, Stats } = require('../models')
+const { User, Log, Loadout, Gear } = require('../models')
 
 //User Controllers
 const getAllUsers = async (req, res) => {
@@ -13,7 +13,7 @@ const getAllUsers = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const newUser = await new User(req.body)
+    const newUser = new User(req.body)
     await newUser.save()
     return res.status(201).json({
       newUser
@@ -25,7 +25,7 @@ const createUser = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const id = req.params.id
-    const user = await User.findById(id).populate('logs', 'loadouts')
+    const user = await User.findById(id).populate('logs').populate('loadouts')
     if (user) {
       return res.status(200).json({ user })
     }

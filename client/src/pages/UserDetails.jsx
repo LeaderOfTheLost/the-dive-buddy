@@ -20,6 +20,7 @@ const UserDetails = () => {
       let response = await axios.get(`/api/users/${id}`)
       setUser(response.data.user) 
       setLogs(response.data.user.logs)
+      console.log(response.data)
       setLoadouts(response.data.user.loadouts)
     } 
     getUser()
@@ -58,7 +59,7 @@ const UserDetails = () => {
     .catch((error) => {
       console.log(error)
     })
-
+    
     setLoadouts([...loadouts, response.data.newLoadout])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
   }
