@@ -57,6 +57,7 @@
   border-radius: 2em;
   box-shadow: 0em 0em 1em rgb(255, 140, 0);
   width: 30%;
+  margin-bottom: 2em;
 }
 .create-button {
   margin: 1em;
