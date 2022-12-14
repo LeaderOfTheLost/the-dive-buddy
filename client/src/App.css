@@ -54,6 +54,10 @@
 .create-button {
   margin: 1em;
 }
+.deleteButton {
+  background-color: red;
+  border: none;
+}
 .user-container {
   display: flex;
   align-items: center;
@@ -104,11 +108,13 @@ form {
 }
 .gear-container{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   border: 2px solid red;
 }
 .gear-card {
   margin: 1em;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 

@@ -33,10 +33,10 @@ const Gear = (props) => {
 
   return (
   <div className="gear-card">
-      <h3>{props.name}</h3>
-    <div>
-      <button className="deleteButton" onClick={handleDeleteGear}>Delete Gear</button>
+     <div>
+      <button className="deleteButton" onClick={handleDeleteGear}>X</button>
     </div>
+      <h3>{props.name}</h3>
   </div>
   )
 }
