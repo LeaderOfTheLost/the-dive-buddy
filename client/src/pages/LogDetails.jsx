@@ -29,6 +29,7 @@ const LogDetails = () => {
       </div>
       <div className='log-card'>
         <h2>{log.location}</h2>
+        <div>
         <h4>Date: {log.dateOfDive}</h4>
         <h4>Time of Day: {log.timeOfDive}</h4>
         <h4>Surface Interval: {log.surfaceInterval} min</h4>
@@ -44,7 +45,7 @@ const LogDetails = () => {
         <h4>Notes: {log.notes}</h4>
         <h4>Dive Buddy: {log.diveBuddy}</h4>
       </div>
-
+      </div>
 </div>
   )
 }
