@@ -115,12 +115,15 @@ form > label {
 .gear-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  border: 2px solid red;
+  border-radius: 1em;
+  box-shadow: 0em 0em 1em white;
 }
 .gear-card {
   margin: 1em;
   display: flex;
   flex-direction: column-reverse;
+  padding: .5em;
+  border: 2px solid rgb(255, 0, 0);
 }
 .log-page {
   display: grid;
