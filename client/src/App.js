@@ -11,7 +11,7 @@ import Stats from './components/Stats'
 function App() {
   return (
     <div className="App">
-      <header className="navbarHead">
+      <header className="navBar">
         <Nav />
       </header>
       <main>

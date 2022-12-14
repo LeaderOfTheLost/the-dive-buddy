@@ -29,9 +29,7 @@ const UserDetails = () => {
   const navToUsers = () => {
     navigate('/')
   }
-  // const navToLoadout = () => {
-  //   navigate(`/loadouts/${id}`)
-  // }
+
 
     const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})

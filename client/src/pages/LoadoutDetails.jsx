@@ -14,6 +14,10 @@ const LoadoutDetails = () => {
   let navigate = useNavigate()
   let {id} = useParams()
 
+  const navToUserDetails = () => {
+    navigate(`/users/${id}`)
+  }
+
   useEffect(() => {
     const getLoadout = async () => {
       let response = await axios.get(`/loadouts/${id}`)
@@ -22,6 +26,15 @@ const LoadoutDetails = () => {
       setGear(response.data.gear)
     } 
     getLoadout()
+  }, [])
+
+  useEffect(() => {
+    const getUser = async () => {
+      let response = await axios.get(`/loadouts/${id}`)
+      setLoadout(response.data) 
+      setGear(response.data.gear)
+    } 
+    getUser()
   }, [])
 
   const handleChange = (event) => {
@@ -42,7 +55,12 @@ const LoadoutDetails = () => {
 
   }
 
-
+  const handleDeleteLoadout = async (event) => {
+    event.preventDefault()
+    let response = await axios.delete(`/loadouts/${id}`, formState)
+    setLoadout(response)
+    navToUserDetails()
+  }
 
 
 
@@ -65,6 +83,9 @@ const LoadoutDetails = () => {
         <input id='name' value={formState.name} onChange={handleChange} />
         <button type='submit'>Add Gear</button>
       </form>
+      </div>
+      <div>
+      <button className="deleteButton" onClick={handleDeleteLoadout}>Delete User</button>
       </div>
 </div>
   )
