@@ -23,6 +23,9 @@
 .nav {
   margin-right: 5%;
 }
+.navHeader {
+  font-size: 1.2em ;
+}
 .navLink{
   font-size: .8em;
   text-decoration: none;
