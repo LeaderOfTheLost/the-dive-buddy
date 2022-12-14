@@ -64,7 +64,7 @@ const LoadoutDetails = () => {
       <form className='gear-form' onSubmit={handleSubmitGear}>
         <label htmlFor='name'>Gear Name:</label>
         <input id='name' value={formState.name} onChange={handleChange} />
-        <button type='submit'>Add Gear</button>
+        <button className='form-button' type='submit'>Add Gear</button>
       </form>
       </div>
       <div>

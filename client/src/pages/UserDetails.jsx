@@ -128,7 +128,7 @@ const UserDetails = () => {
       <form onSubmit={handleSubmitLoadout}>
         <label htmlFor='name'>Loadout Name:</label>
         <input id='name' value={formState.name} onChange={handleChange} />
-        <button type='submit'>Add Loadout</button>
+        <button className='form-button' type='submit'>Add Loadout</button>
       </form>
       </div>
 
@@ -164,7 +164,7 @@ const UserDetails = () => {
         <input id='gasMix' value={formState.gasMix} onChange={handleChange}/>
         <label htmlFor='surfaceInterval'>Surface Interval:</label>
         <input id='surfaceInterval' value={formState.surfaceInterval} onChange={handleChange}/>
-        <button type='submit'>Add Log</button>
+        <button className='form-button' type='submit'>Add Log</button>
       </form>
       </div>
 
@@ -180,7 +180,7 @@ const UserDetails = () => {
           <input id='email' value={formState.email} onChange={handleChange}/>
           <label htmlFor='password'>Password:</label>
           <input id='password' value={formState.password} onChange={handleChange}/>
-          <button type='submit'>Update</button>
+          <button className='form-button' type='submit'>Update</button>
         </form>
       </div>
       </div>

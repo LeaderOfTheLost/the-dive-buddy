@@ -140,9 +140,6 @@ form > label {
   padding: .5em;
   border: 2px solid rgb(255, 0, 0);
 }
-.gear-form > button {
-  margin-top: .7em;
-}
 .gear-form > label {
   margin-bottom: .7em;
 }
@@ -167,6 +164,13 @@ form > label {
   color: rgb(255, 255, 255);
   background-color: transparent;
   border-radius: .3em;
+}
+.form-button {
+  margin-top: .7em;
+  background-color: rgba(153, 255, 0, 0.734);
+  border: none;
+  font-weight: bold;
+  border-radius: .5em;
 }
 
 
