@@ -67,10 +67,12 @@
   margin: 1em;
 }
 .deleteButton {
+  color: rgb(0, 0, 0);
   background-color: rgb(255, 0, 0);
-  width: 8em;
+  width: 9em;
   border-radius: .5em;
   border: none;
+  font-weight: bold;
 }
 .user-container {
   display: flex;
