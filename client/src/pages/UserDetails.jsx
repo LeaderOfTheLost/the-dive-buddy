@@ -90,11 +90,11 @@ const UserDetails = () => {
   }
 
   return (
+    <div className='user-data-container'>
+    <div>
+    <button onClick={navBack}>GO BACK</button>
+  </div>
     <div className="log-container">
-      <div>
-        <button onClick={navBack}>GO BACK</button>
-      </div>
-        <div className='logs'>
         <h3 className='logsHeader'>LOGS:</h3>
         <div>
         {logs?.map((log) => (
@@ -108,6 +108,8 @@ const UserDetails = () => {
         />
       ))}
       </div>
+      </div>
+      <div className='loadout-container'>
       <h3 className='loadoutsHeader'>LOADOUTS:</h3>
       <div>
         {loadouts?.map((loadout) => (
@@ -118,15 +120,16 @@ const UserDetails = () => {
         />
       ))}
       </div>
-      <div className='form'>
+      </div>
+      <div className='loadout-form'>
       <form onSubmit={handleSubmitLoadout}>
         <label htmlFor='name'>Loadout Name:</label>
         <input id='name' value={formState.name} onChange={handleChange} />
         <button type='submit'>Add Loadout</button>
       </form>
       </div>
-      </div>
-    <div className='form'>
+
+    <div className='log-form'>
       <form onSubmit={handleSubmitLog}>
         <label htmlFor='location'>Location:</label>
         <input id='location' value={formState.location} onChange={handleChange} />
@@ -162,7 +165,7 @@ const UserDetails = () => {
       </form>
       </div>
 
-      <div className='form'>
+      <div className='update-form'>
         <form onSubmit={handleUpdate}>
           <label htmlFor='firstName'>First Name:</label>
           <input id='firstName' value={formState.firstName} onChange={handleChange} />
@@ -177,7 +180,7 @@ const UserDetails = () => {
           <button type='submit'>Update</button>
         </form>
       </div>
-      <div>
+      <div className='button-container'>
       <button className="deleteButton" onClick={handleDeleteUser}>Delete User</button>
       </div>
     </div>

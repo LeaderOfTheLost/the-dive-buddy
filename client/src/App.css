@@ -50,5 +50,10 @@
 .create-button {
   margin: 1em;
 }
-
+.user-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
