@@ -140,8 +140,11 @@ form > label {
   padding: .5em;
   border: 2px solid rgb(255, 0, 0);
 }
-.gear-form {
-
+.gear-form > button {
+  margin-top: .7em;
+}
+.gear-form > label {
+  margin-bottom: .7em;
 }
 .log-page {
   display: grid;
