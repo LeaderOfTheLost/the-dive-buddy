@@ -34,33 +34,41 @@ Links:
 
 ## Screenshots
 
-tagline
+Home
 
 ---
 
-<img src="" width ="700px">
+<img src="./client/src/images/home.png" width ="700px">
 
 ---
 
-tagline
+User "Profile"
 
 ---
 
-<img src="" width ="700px">
+<img src="./client/src/images/user.png" width ="700px">
 
 ---
 
-tagline
+Log
 
 ---
 
-<img src="" width ="700px">
+<img src="./client/src/images/log.png" width ="700px">
+
+---
+
+Loadout
+
+---
+
+<img src="./client/src/images/loadout.png" width ="700px">
 
 ---
 
 ### **_Future Updates_**
 
-- [ ]
+- [ ] Auth
 - [ ]
 - [ ]
 - [ ]
