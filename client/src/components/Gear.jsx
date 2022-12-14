@@ -28,18 +28,16 @@ const Gear = (props) => {
     let id = props.id
     let response = await axios.delete(`/gear/${id}`)
     setGear(response)
+    window.location.reload(true)
   }
 
   return (
-    <div className="card">
-    <div className="info-wrapper">
-      
-        <h3>Gear</h3>
-        <h3>{props.name}</h3>
-
+  <div className="gear-card">
+      <h3>{props.name}</h3>
+    <div>
+      <button className="deleteButton" onClick={handleDeleteGear}>Delete Gear</button>
     </div>
-    <button className="deleteButton" onClick={handleDeleteGear}>Delete Gear</button>
-</div>
+  </div>
   )
 }
 

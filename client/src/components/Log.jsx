@@ -33,6 +33,7 @@ const Log = (props) => {
     <div>
     <div className="card" onClick={navToLog}>
         <h3>{log.location}</h3>
+        <h3>{log.dateOfDive}</h3>
     </div>
     <div>
     <button className="deleteButton" onClick={handleDeleteLog}>Delete Log</button>

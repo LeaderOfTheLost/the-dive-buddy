@@ -90,10 +90,11 @@ const UserDetails = () => {
   }
 
   return (
+    <div className='user-detail-container'>
+      <div>
+        <button onClick={navBack}>GO BACK</button>
+      </div>
     <div className='user-data-container'>
-    <div>
-    <button onClick={navBack}>GO BACK</button>
-  </div>
     <div className="log-container">
         <h3 className='logsHeader'>LOGS:</h3>
         <div>
@@ -121,6 +122,8 @@ const UserDetails = () => {
       ))}
       </div>
       </div>
+      </div>
+      <div className='form-container'>
       <div className='loadout-form'>
       <form onSubmit={handleSubmitLoadout}>
         <label htmlFor='name'>Loadout Name:</label>
@@ -179,6 +182,7 @@ const UserDetails = () => {
           <input id='password' value={formState.password} onChange={handleChange}/>
           <button type='submit'>Update</button>
         </form>
+      </div>
       </div>
       <div className='button-container'>
       <button className="deleteButton" onClick={handleDeleteUser}>Delete User</button>
