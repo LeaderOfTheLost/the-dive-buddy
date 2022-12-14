@@ -77,9 +77,10 @@ Loadout
 
 ---
 
-#### Credits:
+Credits:
 
-Docs:
+- [Shark image](https://www.stickers-factory.com/media/catalog/product/cache/1/image/1000x/040ec09b1e35df139433887a97daa66f/0/1/01471_00.png)
+  Docs Used:
 
 - [MDN Docs](https://developer.mozilla.org/en-US/)
 - [W3Schools](https://www.w3schools.com/)
