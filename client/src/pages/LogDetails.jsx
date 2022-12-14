@@ -23,11 +23,11 @@ const LogDetails = () => {
   }, [id])
 
   return (
-    <div className="card">
+    <div className="log-page">
       <div>
         <button onClick={navBack}>GO BACK</button>
       </div>
-      <div>
+      <div className='log-card'>
         <h2>{log.location}</h2>
         <h4>Date: {log.dateOfDive}</h4>
         <h4>Time of Day: {log.timeOfDive}</h4>

@@ -116,5 +116,12 @@ form {
   display: flex;
   flex-direction: column-reverse;
 }
+.log-page {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+.log-card {
+  text-align: center;
+}
 
 
