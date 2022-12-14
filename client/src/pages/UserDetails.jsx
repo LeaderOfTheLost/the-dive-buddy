@@ -92,7 +92,7 @@ const UserDetails = () => {
   return (
     <div className='user-detail-container'>
       <div>
-        <button onClick={navBack}>GO BACK</button>
+        <button className='back-button' onClick={navBack}>GO BACK</button>
       </div>
     <div className='user-data-container'>
     <div className="log-container">

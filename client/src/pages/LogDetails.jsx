@@ -25,7 +25,7 @@ const LogDetails = () => {
   return (
     <div className="log-page">
       <div>
-        <button onClick={navBack}>GO BACK</button>
+        <button className='back-button' onClick={navBack}>GO BACK</button>
       </div>
       <div className='log-card'>
         <h2>{log.location}</h2>

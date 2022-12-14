@@ -46,7 +46,7 @@ const LoadoutDetails = () => {
   return (
     <div className="loadout-page">
       <div>
-        <button onClick={navBack}>GO BACK</button>
+        <button className='back-button' onClick={navBack}>GO BACK</button>
       </div>
       <div className='gear-list'>
       <h3 className='gear-header'>Gear List</h3>
