@@ -1,8 +1,8 @@
-# the-dive-buddy
+# The Dive Buddy
 
 <img src="" width ="400px">
 
-### The Dive Buddy by David Caldwell
+### by David Caldwell
 
 ### 12/15/2022
 
