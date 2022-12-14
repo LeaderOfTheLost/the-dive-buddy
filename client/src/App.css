@@ -122,6 +122,7 @@ form > label {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  margin-bottom: 2em;
 }
 .gear-header {
   height: 1em;
@@ -129,6 +130,7 @@ form > label {
 }
 .gear-container{
   display: grid;
+  margin-bottom: 3em;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   border: 2px solid rgba(0, 0, 255, 0.652);
   border-radius: 1em;
