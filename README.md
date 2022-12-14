@@ -23,12 +23,14 @@ When you open this application you will land on the homepage. From there you can
 - `Fork` and `Clone`
 - `cd` into the new directory
 - `npm install` to install dependencies
+- run `npm run dev` in main directory
+- run `npm start` in client directory
 
 ---
 
 Links:
 
-### [Heroku Deployment]() | [GitHub](https://github.com/LeaderOfTheLost/the-dive-buddy) | [Trello-Board](https://trello.com/b/YNIfKMrZ/the-dive-buddy) | [CHD](./src/images/chd.png) | [ERD](./src/images/erd.png)
+### [Heroku Deployment](https://the-dive-buddy.herokuapp.com/) | [GitHub](https://github.com/LeaderOfTheLost/the-dive-buddy) | [Trello-Board](https://trello.com/b/YNIfKMrZ/the-dive-buddy) | [CHD](./src/images/chd.png) | [ERD](./src/images/erd.png)
 
 ---
 
