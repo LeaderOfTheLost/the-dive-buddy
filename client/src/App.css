@@ -1,5 +1,5 @@
 .App {
-  height: 110%;
+  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -87,3 +87,28 @@ form {
   display: flex;
   flex-direction: column;
 }
+.loadout-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.gear-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.gear-header {
+  height: 1em;
+  margin-bottom: none;
+}
+.gear-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 2px solid red;
+}
+.gear-card {
+  margin: 1em;
+}
+
+

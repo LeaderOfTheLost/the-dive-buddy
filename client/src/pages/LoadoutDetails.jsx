@@ -44,12 +44,13 @@ const LoadoutDetails = () => {
   }
 
   return (
-    <div className="card">
+    <div className="loadout-page">
       <div>
         <button onClick={navBack}>GO BACK</button>
       </div>
-      <h3>Gear</h3>
-      <div>
+      <div className='gear-list'>
+      <h3 className='gear-header'>Gear List</h3>
+      <div className='gear-container'>
         {gear?.map((gear) => (
         <Gear
           key={gear._id}
@@ -57,6 +58,7 @@ const LoadoutDetails = () => {
           name={gear.name}
         />
       ))}
+      </div>
       </div>
       <div className='form'>
       <form onSubmit={handleSubmitGear}>
