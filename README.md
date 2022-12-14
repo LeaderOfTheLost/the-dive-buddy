@@ -1,6 +1,6 @@
 # The Dive Buddy
 
-<img src="" width ="400px">
+<img src="./client/src/images/shark.png" width ="400px">
 
 ### by David Caldwell
 
