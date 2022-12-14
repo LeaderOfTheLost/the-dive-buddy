@@ -34,7 +34,6 @@ const UserDetails = () => {
     navigate('/')
   }
 
-
     const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
   }
@@ -54,7 +53,6 @@ const UserDetails = () => {
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
   }
 
-
     const handleSubmitLoadout = async (event) => {
     event.preventDefault()
 
@@ -68,7 +66,6 @@ const UserDetails = () => {
     
     setLoadouts([...loadouts, response.data.newLoadout])
     setFormState({location: '', dateOfDive: '', timeOfDive: '', diveNumOfDay: '', maxDepth: '', diveTime: '', surfaceTemp: '', bottomTemp: '', visibility: '', diveBuddy: '', notes: '', startPressure: '', endPressure: '', gasMix: '', surfaceInterval: '', name: ''})
-    // navToLoadout()
   }
 
   const handleUpdate = async () => {
@@ -97,9 +94,8 @@ const UserDetails = () => {
       <div>
         <button onClick={navBack}>GO BACK</button>
       </div>
-      <h2>Buttons and buttons</h2>
-            <div className='logs'>
-        <h3 className='logHeader'>LOGS</h3>
+        <div className='logs'>
+        <h3 className='logsHeader'>LOGS:</h3>
         <div>
         {logs?.map((log) => (
         <Log
@@ -112,6 +108,7 @@ const UserDetails = () => {
         />
       ))}
       </div>
+      <h3 className='loadoutsHeader'>LOADOUTS:</h3>
       <div>
         {loadouts?.map((loadout) => (
         <Loadout

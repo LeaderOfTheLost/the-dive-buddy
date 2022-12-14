@@ -22,8 +22,6 @@ const Loadout = (props) => {
     getLoadout()
   }, [id, props.id])
 
-
-
   const handleDeleteLoadout = async (event) => {
     event.preventDefault()
     let id = props.id
@@ -35,13 +33,7 @@ const Loadout = (props) => {
   return (
     <div>
     <div className="card" onClick={navToLoadout}>
-    <div className="info-wrapper">
-      
-        <h3>loadout</h3>
         <h3>{loadout.name}</h3>
-
-
-    </div>
     </div>
     <button className="deleteButton" onClick={handleDeleteLoadout}>Delete Loadout</button>
 </div>

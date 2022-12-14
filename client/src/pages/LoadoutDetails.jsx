@@ -4,8 +4,6 @@ import {useState, useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Gear from '../components/Gear'
 
-
-
 const LoadoutDetails = () => {
   const [loadout, setLoadout] = useState({})
   const [gear, setGear] = useState([])
@@ -52,7 +50,6 @@ const LoadoutDetails = () => {
       })
     setGear([...gear, response.data.newGear])
     setFormState({name: ''})
-
   }
 
   return (
@@ -70,7 +67,6 @@ const LoadoutDetails = () => {
         />
       ))}
       </div>
-
       <div className='form'>
       <form onSubmit={handleSubmitGear}>
         <label htmlFor='name'>Gear Name:</label>

@@ -33,13 +33,7 @@ const Log = (props) => {
   return (
     <div>
     <div className="card" onClick={navToLog}>
-    <div className="info-wrapper">
-      
-        <h3>log</h3>
-        <h3>{log.name}</h3>
-
-
-    </div>
+        <h3>{log.location}</h3>
     </div>
     <div>
     <button className="deleteButton" onClick={handleDeleteLog}>Delete Log</button>

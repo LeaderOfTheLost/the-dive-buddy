@@ -2,13 +2,10 @@ import React from 'react'
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import Log from '../components/Log'
 
-
-const LogDetails = (props) => {
+const LogDetails = () => {
 
   const [log, setLog] = useState({})
-  const [formState, setFormState] = useState({name: ''})
 
   let navigate = useNavigate()
   let {id} = useParams()
@@ -20,13 +17,10 @@ const LogDetails = (props) => {
   useEffect(() => {
     const getLog = async () => {
       let response = await axios.get(`/logs/${id}`)
-
-
       setLog(response.data) 
     } 
     getLog()
   }, [])
-
 
   return (
     <div className="card">
