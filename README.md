@@ -69,9 +69,9 @@ Loadout
 ### **_Future Updates_**
 
 - [ ] Auth
-- [ ]
-- [ ]
-- [ ]
+- [ ] Post Feed
+- [ ] Mobile Design
+- [ ] Edit logs
 
 ---
 
