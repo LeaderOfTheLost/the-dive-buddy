@@ -88,8 +88,9 @@
   margin: 2% 2% 0 2%;
 }
 .loadout-container, .log-container {
-  border: 2px solid yellow;
-  min-height: 10em;
+  border: 2px solid rgb(125, 0, 0);
+  border-radius: 1em;
+  box-shadow: 0em 0em 1em rgb(255, 140, 0);
   min-width: 10em;
   margin: 5% 15% 5% 15%;
   padding: 5%;
@@ -99,9 +100,10 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-left: 3em;
 }
 .log-form, .loadout-form, .update-from {
-  margin: 4%;
+  margin: 2em;
 }
 form {
   display: flex;
