@@ -94,6 +94,9 @@ form {
   display: flex;
   flex-direction: column;
 }
+form > label {
+  margin-top: 1em;
+}
 .loadout-page {
   display: flex;
   align-items: flex-start;
