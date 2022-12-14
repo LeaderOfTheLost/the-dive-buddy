@@ -1,12 +1,11 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const Log = (props) => {
   const [log, setLog] = useState({})
 
   let navigate = useNavigate()
-  let {id} = useParams()
 
   const navToLog = () => {
     let id = props.id
@@ -20,7 +19,7 @@ const Log = (props) => {
       setLog(response.data)
     } 
     getLog()
-  }, [])
+  }, [props.id])
   
   const handleDeleteLog = async (event) => {
     event.preventDefault()

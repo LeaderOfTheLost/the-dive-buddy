@@ -20,7 +20,7 @@ const LogDetails = () => {
       setLog(response.data) 
     } 
     getLog()
-  }, [])
+  }, [id])
 
   return (
     <div className="card">

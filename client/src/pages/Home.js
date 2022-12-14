@@ -70,7 +70,7 @@ const Home = () => {
           />
         ))}
       </div>
-      <div className="form">
+      <div className="user-form">
         <form onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name:</label>
           <input
@@ -98,7 +98,9 @@ const Home = () => {
             value={formState.password}
             onChange={handleChange}
           />
-          <button type="submit">Create User</button>
+          <button className="create-button" type="submit">
+            Create User
+          </button>
         </form>
       </div>
     </div>

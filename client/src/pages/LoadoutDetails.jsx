@@ -24,16 +24,7 @@ const LoadoutDetails = () => {
       setGear(response.data.gear)
     } 
     getLoadout()
-  }, [])
-
-  useEffect(() => {
-    const getUser = async () => {
-      let response = await axios.get(`/loadouts/${id}`)
-      setLoadout(response.data) 
-      setGear(response.data.gear)
-    } 
-    getUser()
-  }, [])
+  }, [id])
 
   const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
