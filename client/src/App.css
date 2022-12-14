@@ -130,15 +130,18 @@ form > label {
 .gear-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  border: 2px solid rgba(0, 0, 255, 0.652);
   border-radius: 1em;
-  box-shadow: 0em 0em 1em white;
+  box-shadow: 0em 0em 1em rgba(13, 255, 0, 0.829);
 }
 .gear-card {
-  margin: 1em;
+  margin: 1.2em;
   display: flex;
   flex-direction: column-reverse;
   padding: .5em;
-  border: 2px solid rgb(255, 0, 0);
+  border: 2px solid rgb(125, 0, 0);
+  box-shadow: 0em 0em 1em rgb(255, 140, 0);
+  border-radius: 1em;
 }
 .gear-form > label {
   margin-bottom: .7em;
