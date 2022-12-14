@@ -125,6 +125,9 @@ form > label {
   padding: .5em;
   border: 2px solid rgb(255, 0, 0);
 }
+.gear-form {
+  padding: 10%
+}
 .log-page {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
