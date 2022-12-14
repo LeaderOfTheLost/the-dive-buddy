@@ -15,6 +15,10 @@ const UserDetails = () => {
   let navigate = useNavigate()
   let {id} = useParams()
 
+  const navBack = () => {
+    navigate(-1)
+  }
+
   useEffect(() => {
     const getUser = async () => {
       let response = await axios.get(`/api/users/${id}`)
@@ -90,6 +94,9 @@ const UserDetails = () => {
 
   return (
     <div className="log-container">
+      <div>
+        <button onClick={navBack}>GO BACK</button>
+      </div>
       <h2>Buttons and buttons</h2>
             <div className='logs'>
         <h3 className='logHeader'>LOGS</h3>

@@ -29,6 +29,7 @@ const Loadout = (props) => {
     let id = props.id
     let response = await axios.delete(`/loadouts/${id}`)
     setLoadout(response)
+    window.location.reload(true)
   }
 
   return (

@@ -14,8 +14,8 @@ const LoadoutDetails = () => {
   let navigate = useNavigate()
   let {id} = useParams()
 
-  const navToUserDetails = () => {
-    navigate(`/users/${id}`)
+  const navBack = () => {
+    navigate(-1)
   }
 
   useEffect(() => {
@@ -55,17 +55,11 @@ const LoadoutDetails = () => {
 
   }
 
-  const handleDeleteLoadout = async (event) => {
-    event.preventDefault()
-    let response = await axios.delete(`/loadouts/${id}`, formState)
-    setLoadout(response)
-    navToUserDetails()
-  }
-
-
-
   return (
     <div className="card">
+      <div>
+        <button onClick={navBack}>GO BACK</button>
+      </div>
       <h3>Gear</h3>
       <div>
         {gear?.map((gear) => (
@@ -85,7 +79,6 @@ const LoadoutDetails = () => {
       </form>
       </div>
       <div>
-      <button className="deleteButton" onClick={handleDeleteLoadout}>Delete User</button>
       </div>
 </div>
   )

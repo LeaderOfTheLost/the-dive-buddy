@@ -17,6 +17,14 @@ const Log = (props) => {
     } 
     getLog()
   }, [])
+  
+  const handleDeleteLog = async (event) => {
+    event.preventDefault()
+    let id = props.id
+    let response = await axios.delete(`/logs/${id}`)
+    setLog(response)
+    window.location.reload(true)
+  }
 
   return (
     <div>
@@ -28,6 +36,7 @@ const Log = (props) => {
         <h3>{props.location}</h3>
         <h3>{props.dateOfDive}</h3>
     </div>
+    <button className="deleteButton" onClick={handleDeleteLog}>Delete Log</button>
     </div>
   )
 }

@@ -12,6 +12,10 @@ const LogDetails = () => {
   let navigate = useNavigate()
   let {id} = useParams()
 
+  const navBack = () => {
+    navigate(-1)
+  }
+
   useEffect(() => {
     const getLog = async () => {
       let response = await axios.get(`/logs/${id}`)
@@ -47,6 +51,9 @@ const LogDetails = () => {
 
   return (
     <div className="card">
+      <div>
+        <button onclick={navBack}></button>
+      </div>
       <h3>Gear</h3>
       <div>
         {gear?.map((gear) => (
