@@ -8,6 +8,10 @@ const Log = (props) => {
   let navigate = useNavigate()
   let {id} = useParams()
 
+  const navToLog = () => {
+    let id = props.id
+    navigate(`/logs/${id}`)
+  }
 
   useEffect(() => {
     const getLog = async () => {
@@ -28,16 +32,19 @@ const Log = (props) => {
 
   return (
     <div>
-    <div className="img-wrapper">
-    </div>
+    <div className="card" onClick={navToLog}>
     <div className="info-wrapper">
       
         <h3>log</h3>
-        <h3>{props.location}</h3>
-        <h3>{props.dateOfDive}</h3>
+        <h3>{log.name}</h3>
+
+
     </div>
+    </div>
+    <div>
     <button className="deleteButton" onClick={handleDeleteLog}>Delete Log</button>
     </div>
+</div>
   )
 }
 

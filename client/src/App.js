@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import UserDetails from './pages/UserDetails'
 import LoadoutDetails from './pages/LoadoutDetails'
+import LogDetails from './pages/LogDetails'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/users/:id" element={<UserDetails />} />
           <Route path="/loadouts/:id" element={<LoadoutDetails />} />
+          <Route path="/logs/:id" element={<LogDetails />} />
         </Routes>
       </main>
     </div>

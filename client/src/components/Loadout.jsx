@@ -33,12 +33,13 @@ const Loadout = (props) => {
   }
 
   return (
-    <div className="card">
+    <div>
     <div className="card" onClick={navToLoadout}>
     <div className="info-wrapper">
       
         <h3>loadout</h3>
         <h3>{loadout.name}</h3>
+
 
     </div>
     </div>
