@@ -186,4 +186,7 @@ form > label {
   font-size: 2em;
   text-shadow: 3px 3px 4px red;
 }
+.about {
+  text-align: center;
+}
 
