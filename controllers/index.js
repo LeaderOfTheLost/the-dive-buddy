@@ -1,5 +1,5 @@
-// const { model } = require('mongoose')
-const { User, Log, Loadout, Gear } = require('../models')
+// const { model } = require("mongoose")
+const { User, Log, Loadout, Gear } = require("../models")
 
 //User Controllers
 const getAllUsers = async (req, res) => {
@@ -16,7 +16,7 @@ const createUser = async (req, res) => {
     const newUser = new User(req.body)
     await newUser.save()
     return res.status(201).json({
-      newUser
+      newUser,
     })
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -25,11 +25,11 @@ const createUser = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const id = req.params.id
-    const user = await User.findById(id).populate('logs').populate('loadouts')
+    const user = await User.findById(id).populate("logs").populate("loadouts")
     if (user) {
       return res.status(200).json({ user })
     }
-    return res.status(404).send('User with the specified ID does not exists')
+    return res.status(404).send("User with the specified ID does not exists")
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -37,7 +37,7 @@ const getUserById = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
+      new: true,
     })
     res.status(200).json(updatedUser)
   } catch (error) {
@@ -50,9 +50,9 @@ const deleteUser = async (req, res) => {
     const { id } = req.params
     const deletedUser = await User.findByIdAndDelete(id)
     if (deletedUser) {
-      return res.status(200).send('User deleted')
+      return res.status(200).send("User deleted")
     }
-    throw new Error('User not found')
+    throw new Error("User not found")
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -67,7 +67,7 @@ const createLog = async (req, res) => {
     updatedUser.logs.push(newLog._id)
     await updatedUser.save()
     return res.status(201).json({
-      newLog
+      newLog,
     })
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -90,7 +90,7 @@ const getLogById = async (req, res) => {
     if (log) {
       return res.status(200).json(log)
     }
-    return res.status(404).send('Log with specific ID does not exists')
+    return res.status(404).send("Log with specific ID does not exists")
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -99,7 +99,7 @@ const getLogById = async (req, res) => {
 const updateLog = async (req, res) => {
   try {
     const updatedLog = await Log.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
+      new: true,
     })
     res.status(200).json(updatedLog)
   } catch (error) {
@@ -112,9 +112,9 @@ const deleteLog = async (req, res) => {
     // const { id } = req.params
     const deletedLog = await Log.findByIdAndDelete(req.params.id)
     if (deletedLog) {
-      return res.status(200).send('Log deleted')
+      return res.status(200).send("Log deleted")
     }
-    throw new Error('Log not found')
+    throw new Error("Log not found")
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -129,7 +129,7 @@ const createLoadout = async (req, res) => {
     updatedUser.loadouts.push(newLoadout._id)
     await updatedUser.save()
     return res.status(201).json({
-      newLoadout
+      newLoadout,
     })
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -148,11 +148,11 @@ const getAllLoadouts = async (req, res) => {
 const getLoadoutById = async (req, res) => {
   try {
     const { id } = req.params
-    const loadout = await Loadout.findById(id).populate('gear')
+    const loadout = await Loadout.findById(id).populate("gear")
     if (loadout) {
       return res.status(200).json(loadout)
     }
-    return res.status(404).send('Loadout with specific ID does not exists')
+    return res.status(404).send("Loadout with specific ID does not exists")
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -164,7 +164,7 @@ const updateLoadout = async (req, res) => {
       req.params.id,
       req.body,
       {
-        new: true
+        new: true,
       }
     )
     res.status(200).json(updatedLoadout)
@@ -178,9 +178,9 @@ const deleteLoadout = async (req, res) => {
     const { id } = req.params
     const deletedLoadout = await Loadout.findByIdAndDelete(req.params.id)
     if (deletedLoadout) {
-      return res.status(200).send('Loadout deleted')
+      return res.status(200).send("Loadout deleted")
     }
-    throw new Error('Loadout not found')
+    throw new Error("Loadout not found")
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -195,7 +195,7 @@ const createGear = async (req, res) => {
     updatedLoadout.gear.push(newGear._id)
     await updatedLoadout.save()
     return res.status(201).json({
-      newGear
+      newGear,
     })
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -214,11 +214,11 @@ const getAllGears = async (req, res) => {
 const getGearById = async (req, res) => {
   try {
     const { id } = req.params
-    const gear = await Gear.findById(id).populate('gear')
+    const gear = await Gear.findById(id).populate("gear")
     if (gear) {
       return res.status(200).json(gear)
     }
-    return res.status(404).send('Gear with specific ID does not exists')
+    return res.status(404).send("Gear with specific ID does not exists")
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -227,7 +227,7 @@ const getGearById = async (req, res) => {
 const updateGear = async (req, res) => {
   try {
     const updatedGear = await Gear.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
+      new: true,
     })
     res.status(200).json(updatedGear)
   } catch (error) {
@@ -240,9 +240,9 @@ const deleteGear = async (req, res) => {
     const { id } = req.params
     const deletedGear = await Gear.findByIdAndDelete(req.params.id)
     if (deletedGear) {
-      return res.status(200).send('Gear deleted')
+      return res.status(200).send("Gear deleted")
     }
-    throw new Error('Gear not found')
+    throw new Error("Gear not found")
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -268,5 +268,5 @@ module.exports = {
   getAllGears,
   getGearById,
   updateGear,
-  deleteGear
+  deleteGear,
 }
